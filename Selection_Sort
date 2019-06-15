@@ -1,0 +1,74 @@
+import java.util.Scanner;
+public class Selection_sort {
+
+	public static void   print_arr(Integer arr[],int size)
+	{
+		for(int i=0;i<size;i++)
+		{
+			System.out.println(arr[i]);
+		}
+
+	}
+
+	public static Integer[] selection_logic(Integer arr[],int size)
+	{
+
+		while(size >0)
+		{
+
+			int temp;
+			int max;
+			max=arr[0];
+			int index=0;                    /*20,35,-15,7,-22,1,55*/
+			/*43 ,4,3,2 */  /*2,4,3,43 */ 	 /*2,3,4,43 */
+			for(int i=1;i<=size-1;i++)
+			{
+				if(max <arr[i])
+
+				{
+					index=i;
+					max=arr[i];
+
+				}
+				else
+				{
+					continue;
+				}
+
+			}
+			temp=arr[size-1];
+			arr[size-1]=max;
+			arr[index]=temp;
+			size=size-1;
+		}
+		return arr;
+	}
+	public static void main(String[] args)
+	{
+		Scanner sc =new Scanner(System.in);
+		System.out.println("Enter the size");
+		int size=sc.nextInt();
+		Integer arr[] =new Integer[size];
+		//	System.out.println(arr.length);
+		for(int i=0;i<size;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+
+		int	par_index=arr.length-1;
+		//	System.out.println(par_index);
+
+
+
+		arr=selection_logic(arr, size);
+
+
+		print_arr(arr,size);
+
+
+	}
+
+
+}
+
+
